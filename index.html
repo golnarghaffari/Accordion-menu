@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion menu</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <main>
+        <h1>General Questions</h1>
+        <div class="box">
+            <ul>
+                <li>
+                    <h4 data-st="off">Do You Accept All Major Credit Cards? <div><span>|</span><span>|</span></div>
+                    </h4>
+                    <p>ffffLorem ipsum Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti ad a odio
+                        aliquam velit veritatis accusantium ab officia recusandae quam dignissimos repellat aut quaerat
+                        in optio, accusamus qui consequatur sit vero amet ex distinctio placeat reiciendis ducimus?
+                        Cupiditate quo sapiente deserunt et ad enim quam eius. Repellendus quidem neque minus?Lorem
+                        ipsum dolor sit amet consectetur adipisicing elit. Iure, reiciendis vero
+                        eliserunt dicta porro quae culpa
+                        numquam?</p>
+                </li>
+                <li>
+                    <h4 data-st="off">Do You Suppport Local Farmers?<div><span>|</span><span>|</span></div>
+                    </h4>
+                    <p>ffffLorem ipsum Lorem ipsum dolor sit amet conm ipsum Lorem ipsum dolor sit amet consectetur am
+                        ipsum Lorem ipsum dolor sit amet consectetur asectetur adipisicing elit. Iure, reiciendis vero
+                        ?</p>
+                </li>
+                <li>
+                    <h4 data-st="off">Do You Use Organic Ingredients?<div><span>|</span><span>|</span></div>
+                    </h4>
+                    <p>ffffLorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, reiciendis vero
+                        serunt rem.Lorem ipsum dolor sit ametLorem ipsum Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Iure, reiciendis vero
+                        serunt rem.Lorem ipsum dolor sit ametLorem ipsum Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Iure, reiciendis vero
+                        serunt rem.Lorem ipsum dolor sit amet
+                        consectetur adipisicing elcorporis fugit, assumenda deserunt dicta porro quae culpa
+                        numquam?</p>
+                </li>
+            </ul>
+
+        </div>
+
+    </main>
+    <script>
+        const _h4 = document.querySelectorAll('li>h4')
+        const _p = document.querySelectorAll('li>p')
+
+        _p.forEach((s) => {
+            s.setAttribute('data_h', s.clientHeight)
+            s.style.height = '0'
+        })
+
+        _h4.forEach((val, i) => {
+            val.addEventListener('click', () => {
+                _h4.forEach((item, index) => {
+                    if ((index != i) & (item.getAttribute('data-st') == 'on')) {
+                        item.nextElementSibling.style.height = '0px'
+                        item.setAttribute('data-st', 'off')
+                    }
+                })
+
+                if (val.getAttribute("data-st") == "off") {
+                    val.nextElementSibling.style.height = val.nextElementSibling.getAttribute('data_h') + 'px'
+                    val.setAttribute("data-st", "on")
+                    //    val.children.children[0].style.display='none'
+
+                } else {
+                    val.nextElementSibling.style.height = '0px';
+                    val.setAttribute("data-st", "off")
+                    // val.children.children[0].style.display='flex'
+
+                }
+
+            })
+        })
+    </script>
+</body>
+
+</html>
